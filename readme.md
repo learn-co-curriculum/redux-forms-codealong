@@ -212,7 +212,7 @@ store.dispatch({ type: '@@INIT' });
 
 In the top line, you can see that we create the store with a reducer. Then, further down, we pass through the store as a prop to our app.  Our __App__ component passes the store as a prop down to the __CreateTodo__ component. So if you put a debugger right after the line render in __CreateTodo__, and type in this.props in the code, you can see we have access to the store as one of the props.
 
-Why did pass our store in as one of the props?  We did it so that on submit we can call `this.props.store.dispatch({ type: 'ADD_TODO', todo: this.state })`, and send our store with our component's state.  
+Why did we pass our store in as one of the props?  We did it so that on submit we can call `this.props.store.dispatch({ type: 'ADD_TODO', todo: this.state })`, and send our store with our component's state.  
 
   Ok, let's implement this -- it will make more sense as we move along. First, we need to update the __render()__ function of the __CreateTodo__ component to call a callback on the submission of a form:
 
@@ -292,3 +292,5 @@ Ok, once you change the __manageTodo()__ reducer to the above function, open up 
 ## Summary
 
 There's a lot of typing in this section, but three main steps.  First, we made sure the React component of our application was working. We did this by building a form, and then making sure that whenever the user typed in the form's input, the state was updated. Once we got __React__ working, we needed to connect it to __Redux__. We connected Redux by passing through our store object as a prop, and then dispatching an action every time the user submitted the form.  Finally, we built our reducer such that it responded to the appropriate event and concatenated the payload into our array of todos.  In the next section we'll display our state on the page.  That section is a bit of a review, so feel free to finish this application up on your own... after a well-deserved break!
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/redux-forms-codealong'>Redux Forms Codealong</a> on Learn.co and start learning to code for free.</p>
