@@ -97,7 +97,6 @@ render(){
         </p>
         <input type="submit" />
       </form>
-      {this.state.text}
     </div>
   );
 }
@@ -148,7 +147,7 @@ handler.  The event's target is the input that was listening for the event (the
 text field), and the value is the current value of that text field.
 
 To make it a completely controlled form, we would also want to set the `value`
-attribute of out `input` element to `this.state.props`. This way, every key
+attribute of our `input` element to `this.state.props`. This way, every key
 stroke within `input` will call a `setState` from within `handleChange`, the
 component will re-render and the new value for `this.state.text` will appear.
 
@@ -187,6 +186,7 @@ class CreateTodo extends Component {
           </p>
           <input type="submit" />
        </form>
+       {this.state.text}
      </div>
    );
   }
@@ -249,7 +249,7 @@ export default connect(null, mapDispatchToProps)(CreateTodo);
 In this component, we're not currently concerned with writing a
 `mapStateToProps` function (the first argument passed to `connect`) as this
 component doesn't need any state. Since we only need to dispatch an action here
-and not getting information from our store, we can use `null` instead of
+and are not getting information from our store, we can use `null` instead of
 `mapStateToProps` as the first argument.
 
 Next, as we write out our `mapDispatchToProps()` function, we'll need to decide
