@@ -148,7 +148,7 @@ handler.  The event's target is the input that was listening for the event (the
 text field), and the value is the current value of that text field.
 
 To make it a completely controlled form, we would also want to set the `value`
-attribute of out `input` element to `this.state.props`. This way, every key
+attribute of out `input` element to `this.state.text`. This way, every key
 stroke within `input` will call a `setState` from within `handleChange`, the
 component will re-render and the new value for `this.state.text` will appear.
 
