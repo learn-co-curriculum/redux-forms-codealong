@@ -364,7 +364,7 @@ to call a callback on the submission of a form:
 
 ...
 
-<form onSubmit={ event => this.handleSubmit(event) }>
+<form onSubmit={this.handleSubmit}>
 
 ...
 ```
@@ -411,12 +411,12 @@ class CreateTodo extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
+        <form onSubmit={this.handleSubmit}>
           <p>
             <label>add todo</label>
             <input
               type="text"
-              onChange={event => this.handleChange(event)}
+              onChange={this.handleChange}
               value={this.state.text}
             />
           </p>
@@ -471,12 +471,12 @@ class CreateTodo extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
+        <form onSubmit={this.handleSubmit}>
           <p>
             <label>add todo</label>
             <input
               type="text"
-              onChange={event => this.handleChange(event)}
+              onChange={this.handleChange}
               value={this.state.text}
             />
           </p>
@@ -527,9 +527,9 @@ export default function manageTodo(state = {
   switch (action.type) {
     case 'ADD_TODO':
 
-      console.log({ todos: state.todos.concat(action.payload.text) });
+      console.log({ todos: state.todos.concat(action.payload) });
 
-      return { todos: state.todos.concat(action.payload.text) };
+      return { todos: state.todos.concat(action.payload) };
 
     default:
       return state;
