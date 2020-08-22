@@ -63,7 +63,7 @@ store:
 }
 ```
 
-So if the user has typed in buy groceries, our action would look like:
+So if the user has typed in 'buy groceries', our action would look like:
 
 ```JavaScript
 {
@@ -161,7 +161,7 @@ bind it (often done in the `constructor()`), or use an arrow function in our
 of `this`, they'll default to the context they are in.
 
 We never intend for `handleChange()` to be used any other way. In modern
-JavaScript, we are able to directly class assign properties instead of assigning
+JavaScript, we are able to assign class properties directly instead of assigning
 them inside a `constructor()`. This means that, instead of writing
 `handleChange()` as a class method, we could declare it as a class property
 and assign an arrow function to it:
@@ -496,8 +496,8 @@ actions via a `console.log` in our reducer.
 ### 3. Update State
 
 So we are properly dispatching the action, but the state is not being updated.
-What could be the problem? Well remember our crux of redux flow: Action ->
-Reducer -> New State. So if the action is properly dispatched, then our problem
+What could be the problem? Well, remember the crux of our redux flow: `Action ->
+Reducer -> New State`. So if the action is properly dispatched, then our problem
 must lie with our reducer. Open up the file `./src/reducers/manageTodo.js`.
 
 This function does nothing. Let's fix that. First we need to provide an initial
