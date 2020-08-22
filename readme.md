@@ -153,7 +153,7 @@ text field), and the value is the current value of that text field.
 
 Currently, we're using class method syntax to define `handleChange()` on our
 component. The JSX code within our `render()` method is particular to a specific
-instance of the component, but, by default, **class methods are called the
+instance of the component, but, by default, **class methods are called in the
 context of the [prototype chain][], not an instance**. In order for `this` to
 correctly reference _this_ specific instance of our component, we need to either
 bind it (often done in the `constructor()`), or use an arrow function in our
@@ -214,7 +214,7 @@ callback anymore!
 
 To make a completely controlled form, we will also need to set the `value`
 attribute of our `input` element to `this.state.text`. This way, every key
-stroke within `input` will call a `setState` from within `handleChange`, the
+stroke within `input` will call a `setState` from within `handleChange`, and the
 component will re-render and display the new value for `this.state.text`.
 
 The _CreateTodo_ component should look like the following now:
@@ -287,7 +287,6 @@ import { createStore } from 'redux';
 
 let store = createStore(manageTodo);
 
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
@@ -334,7 +333,7 @@ const mapDispatchToProps = dispatch => {
 
 On submission of the form in our component, we want to send the value we've
 captured in the local state to be added to our **Redux** store. With the above
-set up, `addTodo` becomes a function in props that is able take arguments.
+set up, `addTodo` becomes a function in props that is able to take arguments.
 
 ```js
 const mapDispatchToProps = dispatch => {
@@ -344,7 +343,7 @@ const mapDispatchToProps = dispatch => {
 }
 ```
 
-From the Redux docs, we know that <some action> needs to be a plain javascript object
+From the Redux docs, we know that `<some action>` needs to be a plain javascript object
 with a `type` key describing the type of action. We also need to include the data from
 the form - in this case, we'll call that key 'payload'.
 
@@ -356,8 +355,7 @@ const mapDispatchToProps = dispatch => {
 };
 ```
 
-In our component, we could call something like `this.props.addTodo(this.state)`.
-Since `this.state` is an object with only one property, `text`.
+In our component, we could call something like `this.props.addTodo(this.state)`, since `this.state` is an object with only one property, `text`.
 
 Now we need to update the **render()** function of the **CreateTodo** component
 to call a callback on the submission of a form:
@@ -389,7 +387,7 @@ handleSubmit = event => {
 
 When `handleSubmit()` is called, whatever is currently stored in `this.state`
 will be sent off to our reducer via our dispatched action. The fully
-redux'd component ends up looking the like the following:
+redux'd component ends up looking like the following:
 
 ```js
 import React, { Component } from 'react';
@@ -417,11 +415,11 @@ class CreateTodo extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <p>
             <label>add todo</label>
-              <input
-                type="text"
-                onChange={event => this.handleChange(event)}
-                value={this.state.text}
-              />
+            <input
+              type="text"
+              onChange={event => this.handleChange(event)}
+              value={this.state.text}
+            />
           </p>
           <input type="submit" />
         </form>
@@ -504,7 +502,7 @@ Reducer -> New State. So if the action is properly dispatched, then our problem
 must lie with our reducer. Open up the file `./src/reducers/manageTodo.js`.
 
 This function does nothing. Let's fix that. First we need to provide an initial
-state. Because, we want our state to look like:
+state. Because we want our state to look like:
 
 ```JavaScript
 state = {
@@ -553,7 +551,7 @@ There's a lot of typing in this section, but three main steps.
   this by building a form, and then making sure that whenever the user typed in
   the form's input, the state was updated.
 
-- Second, We connected the component to **Redux** and designed our `mapDispatchToProps`
+- Second, we connected the component to **Redux** and designed our `mapDispatchToProps`.
 
 - Third, we built our reducer such that it responded to the appropriate event
   and concatenated the payload into our array of todos.
