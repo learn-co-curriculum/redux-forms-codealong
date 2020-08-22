@@ -312,8 +312,7 @@ export default connect(null, mapDispatchToProps)(CreateTodo);
 ```
 
 In this component, we are not currently concerned with writing a
-`mapStateToProps()` function (the first argument passed to `connect`) as this
-component doesn't need any state. Since we only need to dispatch an action here
+`mapStateToProps()` function (the first argument passed to `connect`). Since we only need to dispatch an action here
 and we are not getting information from our store, we can use `null` instead of
 `mapStateToProps` as the first argument.
 
